@@ -1,0 +1,13 @@
+
+> restuarant_app@0.1.0 lint
+> eslint
+
+
+C:\Users\Walaa\OneDrive\Desktop\restuarant_app\src\lib\sanity.ts
+  13:32  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\Walaa\OneDrive\Desktop\restuarant_app\tailwind.config.ts
+  61:15  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+✖ 2 problems (2 errors, 0 warnings)
+

@@ -1,0 +1,6 @@
+
+> restuarant_app@0.1.0 lint
+> eslint
+
+Terminate batch job (Y/N)? 
+^C
