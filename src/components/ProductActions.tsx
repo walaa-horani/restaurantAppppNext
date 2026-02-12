@@ -9,6 +9,7 @@ interface Product {
     _id: string
     name: string
     price: number
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     image: any
 }
 

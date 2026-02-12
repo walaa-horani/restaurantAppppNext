@@ -6,9 +6,14 @@ import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import { urlFor } from "@/lib/sanity"
 import { Trash2 } from "lucide-react"
+import { toast } from "sonner"
 
 export function CartSheet() {
     const { items, removeItem, isOpen, setIsOpen, total } = useCart()
+
+    const handleCheckout = () => {
+        toast.info("Checkout system is offline in this demo version.")
+    }
 
     return (
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -36,7 +41,8 @@ export function CartSheet() {
                                 <div className="relative h-16 w-16 rounded-md overflow-hidden bg-black/50 border border-white/10 shrink-0">
                                     {item.image ? (
                                         <Image
-                                            src={urlFor(item.image).url()}
+                                            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                                            src={urlFor(item.image as any).url()}
                                             alt={item.name}
                                             fill
                                             className="object-cover"
@@ -68,7 +74,11 @@ export function CartSheet() {
                         <span className="text-white">Total</span>
                         <span className="text-primary font-mono">${total.toFixed(2)}</span>
                     </div>
-                    <Button className="w-full h-12 bg-primary text-black font-black text-lg hover:bg-white hover:shadow-neon transition-all uppercase tracking-widest disabled:opacity-50 disabled:cursor-not-allowed" disabled={items.length === 0}>
+                    <Button
+                        className="w-full h-12 bg-primary text-black font-black text-lg hover:bg-white hover:shadow-neon transition-all uppercase tracking-widest disabled:opacity-50 disabled:cursor-not-allowed"
+                        disabled={items.length === 0}
+                        onClick={handleCheckout}
+                    >
                         Checkout
                     </Button>
                 </div>

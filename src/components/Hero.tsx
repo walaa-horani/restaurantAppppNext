@@ -16,11 +16,7 @@ export function Hero() {
             id: "cyber-double-hero",
             name: "The Cyber Double",
             price: 18.99,
-            image: null, // We don't have a sanity image object here, could use the static url if we change CartContext type or valid sanity ref. 
-            // For now, let's pass undefined or handle it. 
-            // Actually CartContext CartItem image is 'any'. 
-            // But urlFor(item.image) will fail if image is null. 
-            // We should handle that in CartSheet.
+            image: null, // Image is optional in CartItem
         });
         toast.success("The Cyber Double added to cart.");
         setIsOpen(true);

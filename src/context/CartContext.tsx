@@ -1,13 +1,12 @@
 "use client"
 
 import React, { createContext, useContext, useState, ReactNode } from "react"
-import { toast } from "sonner" // Or simple alert if sonner not installed, but let's assume simple for now
 
 export interface CartItem {
     id: string
     name: string
     price: number
-    image?: any
+    image?: object | null
     quantity: number
 }
 
