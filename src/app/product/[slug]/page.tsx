@@ -51,7 +51,7 @@ export default async function ProductPage(props: { params: Promise<{ slug: strin
                 <section className="container px-4 py-24 mx-auto min-h-[80vh] flex flex-col justify-center">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start w-full">
                         {/* Image Side */}
-                        <div className="relative group sticky top-24">
+                        <div className="relative group lg:sticky lg:top-24">
                             <div className="absolute -inset-1 bg-gradient-to-r from-primary to-blue-600 rounded-2xl opacity-30 blur-xl group-hover:opacity-60 transition duration-1000" />
                             <div className="relative h-[400px] lg:h-[600px] w-full rounded-2xl overflow-hidden border border-white/10 bg-black/40 shadow-2xl">
                                 {product.image ? (
