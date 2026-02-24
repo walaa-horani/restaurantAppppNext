@@ -16,7 +16,11 @@ interface MenuItem {
 
 async function getFavorites() {
     try {
-        return await client.fetch<MenuItem[]>(`*[_type == "menuItem" && isFavorite == true]`);
+        return await client.fetch<MenuItem[]>(
+            `*[_type == "menuItem" && isFavorite == true]`,
+            {},
+            { next: { revalidate: 10 } }
+        );
     } catch (error) {
         console.error("Failed to fetch favorites", error);
         return [];

@@ -9,7 +9,11 @@ import { PairWith } from "@/components/PairWith";
 
 async function getProduct(slug: string) {
     try {
-        return await client.fetch(`*[_type == "menuItem" && slug.current == $slug][0]`, { slug });
+        return await client.fetch(
+            `*[_type == "menuItem" && slug.current == $slug][0]`,
+            { slug },
+            { next: { revalidate: 10 } }
+        );
     } catch {
         return null;
     }
@@ -17,7 +21,11 @@ async function getProduct(slug: string) {
 
 async function getRecommendations(currentId: string) {
     try {
-        return await client.fetch(`*[_type == "menuItem" && _id != $currentId][0..2]`, { currentId });
+        return await client.fetch(
+            `*[_type == "menuItem" && _id != $currentId][0..2]`,
+            { currentId },
+            { next: { revalidate: 10 } }
+        );
     } catch {
         return [];
     }
